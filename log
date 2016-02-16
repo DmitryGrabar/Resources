@@ -1,0 +1,18 @@
+Dmitry@DMITRY-ой /d/gitfiles (master)
+$ git commit -m "Update status.txt"
+[master c1aa330] Update status.txt
+ 1 file changed, 27 insertions(+)
+
+Dmitry@DMITRY-ой /d/gitfiles (master)
+$ git log
+commit c1aa33046c64e9d60f8cd0cd8acee76f03dae98f
+Author: Dmitry <grabar97@mail.ru>
+Date:   Tue Feb 16 12:21:35 2016 +0300
+
+    Update status.txt
+
+commit 032fc75a013989fe8deef097c1c263b8a87512b7
+Author: Dmitry <grabar97@mail.ru>
+Date:   Tue Feb 16 12:17:30 2016 +0300
+
+    Add .gitignore
