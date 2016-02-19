@@ -1,0 +1,41 @@
+d:\gitfiles>git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    log
+        deleted:    status.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+d:\gitfiles>git add log
+
+d:\gitfiles>git add status.txt
+
+d:\gitfiles>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    log
+        deleted:    status.txt
+
+d:\gitfiles>git add .gitignore
+
+d:\gitfiles>git commit -m "Add .gitignore"
+[master e33536e] Add .gitignore
+ 2 files changed, 45 deletions(-)
+ delete mode 100644 log
+ delete mode 100644 status.txt
+
+d:\gitfiles>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        status.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+d:\gitfiles>
