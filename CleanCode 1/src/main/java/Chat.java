@@ -26,7 +26,7 @@ public class Chat {
 
     private void idDeleteMessage() {
         System.out.println("Enter ID to delete message : ");
-        UUID id =  UUID.fromString(in.nextLine());
+        UUID id = UUID.fromString(in.nextLine());
         for (Message element : this.messages) {
             if (element.getID().equals(id)) {
                 messages.remove(element);
@@ -92,10 +92,10 @@ public class Chat {
         Chat chat = new Chat();
 
         chat.addMessage(chat.readMessage());
-//        chat.showMessageList();
-//        chat.regularExpressionSearch();
-//        chat.authorSearch();
-//        chat.lexemeSearch();
+        chat.showMessageList();
+        chat.regularExpressionSearch();
+        chat.authorSearch();
+        chat.lexemeSearch();
         chat.timeSearch();
         chat.idDeleteMessage();
         chat.showMessageList();

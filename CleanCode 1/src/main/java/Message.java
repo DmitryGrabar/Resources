@@ -7,12 +7,6 @@ public class Message {
     private String text;
     private String author;
 
-    public Message(){
-        this.id = UUID.randomUUID();
-        this.timestamp = new Date(System.currentTimeMillis());
-        this.text = "";
-        this.author = "";
-    }
     public Message(String text, String author) {
         this.id = UUID.randomUUID();
         this.timestamp = new Date(System.currentTimeMillis());
