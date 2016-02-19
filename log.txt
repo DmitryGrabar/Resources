@@ -1,0 +1,26 @@
+d:\gitfiles>git log
+commit 2b29908623041ce037ce38199e11d7646109c7b1
+Author: Dmitry <grabar97@mail.ru>
+Date:   Fri Feb 19 18:48:11 2016 +0300
+
+    Add status.txt
+
+commit e33536e04da3d4b5cc7c6b5907de35efc446f483
+Author: Dmitry <grabar97@mail.ru>
+Date:   Fri Feb 19 18:46:55 2016 +0300
+
+    Add .gitignore
+
+commit 76be9a110b58cdb7ef388f63c103eaff5a14a791
+Author: Dmitry <grabar97@mail.ru>
+Date:   Tue Feb 16 12:23:16 2016 +0300
+
+    Add log
+
+commit c1aa33046c64e9d60f8cd0cd8acee76f03dae98f
+Author: Dmitry <grabar97@mail.ru>
+Date:   Tue Feb 16 12:21:35 2016 +0300
+
+    Update status.txt
+
+:
