@@ -1,3 +1,6 @@
+import JSONFileWorkers.Writer;
+
+import javax.json.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,29 +16,29 @@ public class Chat {
         messages = new ArrayList<Message>();
     }
 
-    private Message readMessage() {
-        System.out.println("Enter your message, and by // name: " + "\n" + "P.S.   Blablablablablabla.//DMITRY  ");
+    public Message readMessage() {
+        System.out.println("Введите ваше сообщение и через // имя: " + "\n" + "P.S.   Blablablablablabla.//DMITRY  ");
         String inputLine = in.nextLine();
         String tokens[] = inputLine.split("//");
         return new Message(tokens[0], tokens[1]);
     }
 
-    private void addMessage(Message message) {
+    public void addMessage(Message message) {
         this.messages.add(message);
     }
 
-    private void idDeleteMessage() {
-        System.out.println("Enter ID to delete message : ");
+    public void idDeleteMessage() {
+        System.out.println("Введите ID-номер для удаления сообщения : ");
         UUID id = UUID.fromString(in.nextLine());
-        for (Message element : this.messages) {
-            if (element.getID().equals(id)) {
-                messages.remove(element);
+        for (int i = 0; i < this.messages.size(); i++) {
+            if (this.messages.get(i).getID().equals(id)) {
+                messages.remove(this.messages.get(i));
             }
         }
     }
 
-    private void authorSearch() {
-        System.out.println("Enter author to find message(s) : ");
+    public void authorSearch() {
+        System.out.println("Введите автора для поиска сообщения : ");
         String author = in.nextLine();
         for (Message element : this.messages) {
             if (element.getAuthor().equals(author)) {
@@ -44,18 +47,18 @@ public class Chat {
         }
     }
 
-    private void showMessage(Message message) {
-        System.out.println(message.getAuthor() + ": " + message.getText() + " " + message.getDate() + " ID: " + message.getID());
+    public void showMessage(Message message) {
+        System.out.println(message.getAuthor() + ": " + message.getText() + " " + message.getDate() + " ID: " + message.getID() + "\n");
     }
 
-    private void showMessageList() {
+    public void showMessageList() {
         for (Message element : this.messages) {
             showMessage(element);
         }
     }
 
-    private void lexemeSearch() {
-        System.out.println("Enter lexem to find message(s) : ");
+    public void lexemeSearch() {
+        System.out.println("Введите лексему для поиска сообщения : ");
         String lexeme = in.nextLine();
         for (Message element : this.messages) {
             if (element.getText().contains(lexeme)) {
@@ -64,9 +67,9 @@ public class Chat {
         }
     }
 
-    private void regularExpressionSearch() {
-        System.out.println("Regular expression search.");
-        System.out.println("Input regular expression : ");
+    public void regularExpressionSearch() {
+        System.out.println("Поиск сообщений по регулярному выражению.");
+        System.out.println("Введите регулярное выражение : ");
         String regularExpression = in.nextLine();
         for (Message element : this.messages) {
             Pattern pattern = Pattern.compile(regularExpression);
@@ -74,30 +77,31 @@ public class Chat {
             if (matcher.find()) {
                 showMessage(element);
             } else {
-                System.out.println("Not found.");
+                System.out.println("Такого сообщения не существует.");
             }
         }
     }
 
-    private void timeSearch() {
+    public void timeSearch() {
         TimeSearcher ts = new TimeSearcher();
         for (Message element : this.messages) {
-            if (ts.rightDate()) {
+            if (ts.rightDate(element)) {
                 showMessage(element);
             }
         }
     }
 
-    public static void main(String[] args) {
-        Chat chat = new Chat();
+    public List<JsonObject> transferMessageToJson() {
+        Writer writer = new Writer();
+        for (Message element : this.messages) {
+            writer.addObj(writer.readObject(element.getAuthor(), element.getText(), element.getDate(), element.getID()));
+        }
+        return writer.getList();
+    }
 
-        chat.addMessage(chat.readMessage());
-        chat.showMessageList();
-        chat.regularExpressionSearch();
-        chat.authorSearch();
-        chat.lexemeSearch();
-        chat.timeSearch();
-        chat.idDeleteMessage();
-        chat.showMessageList();
+    public void transferJsonToMessage(List<JsonObject> jsonList) {
+        for (JsonObject element : jsonList) {
+            this.messages.add(new Message(element));
+        }
     }
 }
