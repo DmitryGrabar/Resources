@@ -52,4 +52,16 @@ public class Writer {
             System.out.println(ex.getMessage());
         }
     }
+
+    public void writeLog(int added, int finded, int deleted, StringBuilder sb) {
+        try {
+            FileWriter fw = new FileWriter(new File("log.txt").getAbsoluteFile());
+            fw.write(sb.toString() + "Кол-во добавленных сообщений: " + added
+                    + "\nКол-во найденных сообщений: " + finded
+                    + "\nКол-во удаленных сообщений: " + deleted);
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println("Неудачная запись лога." + ex.getMessage());
+        }
+    }
 }
