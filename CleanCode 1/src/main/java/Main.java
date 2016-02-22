@@ -69,7 +69,7 @@ public class Main {
                             chat.idDeleteMessage();
                             sb.append("Удаление по ID - номеру.\n");
                             deleted++;
-                        }catch (IllegalArgumentException ex){
+                        } catch (IllegalArgumentException ex) {
                             System.out.println("Вы ввели неверный ID-номер." + "\n");
                             sb.append("Вы ввели неверный ID-номер." + "\n");
                         }
