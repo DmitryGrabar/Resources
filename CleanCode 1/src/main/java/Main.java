@@ -81,7 +81,7 @@ public class Main {
                         break;
                     case 9:
                         read.readFile();
-                        chat.transferJsonToMessage(read.getList());
+                        added = chat.transferJsonToMessage(read.getList(), added);
                         sb.append("Чтение из файла.\n");
                         break;
                     case 10:

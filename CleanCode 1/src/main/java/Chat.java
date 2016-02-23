@@ -99,9 +99,12 @@ public class Chat {
         return writer.getList();
     }
 
-    public void transferJsonToMessage(List<JsonObject> jsonList) {
+    //возвращает инт, чтобы при считывании узнать сколько команд было в файле
+    public int transferJsonToMessage(List<JsonObject> jsonList, int messageCounter) {
         for (JsonObject element : jsonList) {
             this.messages.add(new Message(element));
+            messageCounter++;
         }
+        return messageCounter;
     }
 }

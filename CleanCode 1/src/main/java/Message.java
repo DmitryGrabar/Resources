@@ -19,7 +19,6 @@ public class Message {
     private Date parseDate(JsonObject jsonObject){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
         try {
-            System.out.println(jsonObject.getString("Date: "));
             return sdf.parse(jsonObject.getString("Date: "));
         }catch (ParseException ex){
             System.out.println(ex.getMessage());
