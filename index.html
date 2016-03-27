@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <html>
+
+   <head>
+     <title>Chat by Grabar Dmitry</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+
+   <body>
+     <h1 class="header">&#169Grabar Dmitry</h1>
+	 <form action="" method="">
+		 <div class="container">
+			 <ul id="message-list">
+				<li class="my-message">
+					<div class="message">
+						<div class="message-avatar"></div>
+						<div class="message-author">Me</div>
+						<div class="message-text">
+							<div class="text">Said something</div>
+							<div class="message-date">21:27:45 16.03.2016</div>
+						</div>
+						<input type="button" onclick="delete_msg(this)" alt="D" class="message-delete">
+						<input type="button" onclick="edit_msg(this)" alt="E" class="message-edit">
+						<div class="edit_area_on">
+							<input type="text" class="edit-field">
+							<input type="button" onclick="confirm_change(this)" value="Edit">
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="message">
+						<div class="message-avatar"></div>
+						<div class="message-author">Somebody</div>
+						<div class="message-text">
+							<div class="text">Said bla bla bla</div>
+							<div class="message-date">21:27:45 16.03.2016</div>
+						</div>
+						<input type="button" onclick="delete_msg(this)" alt="D" class="message-delete">
+						<input type="button" onclick="edit_msg(this)" alt="E" class="message-edit">
+						<div class="edit_area_on">
+							<input type="text" class="edit-field">
+							<input type="button" onclick="confirm_change(this)" value="Edit">
+						</div>
+					</div>
+				</li>
+			</ul>
+		 </div>
+		 <div class="main-input">
+			<div class="input-name"><textarea id="name_area">  Nickname</textarea>
+			</div>
+		 <textarea id="msg_area">  Message</textarea>
+		 <input id="send-btn" type="button" onclick="send_msg()" value="Send" " class="send-btn">
+		 </div>
+	</form>
+   </body>
+
+ </html>
